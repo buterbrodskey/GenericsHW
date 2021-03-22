@@ -10,6 +10,10 @@ public class BoxUtil {
     // при условии, что содержащийся фрукт свежий (fresh == true).
     //Box(dest) в которую будем копировать может быть типизирована любым родителем объекта содержащимся в Box(src)
     public static <T extends Fruit> void copyFreshFruitFromBoxToBox(Box<T> src, Box<? super T> dest) {
+        if (src.get() == null) {
+            System.out.println("Перекладывать нечего!");
+            return;
+        }
         if (src.get().isFresh() == true) {
             dest.put(src.get());
         }
@@ -17,8 +21,8 @@ public class BoxUtil {
     }
 
     //вывести в консоль (toString()) объект второй коробки
-    public static <T> void printElementFromTwoBoxes(Box<T> box) {
-        System.out.println(((Box<T>) box.get()).get());
+    public static <T> void printElementFromTwoBoxes(Box<Box<T>> box) {
+        System.out.println((box.get()).get());
     }
 
     /**

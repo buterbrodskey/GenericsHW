@@ -26,6 +26,9 @@ public class Main {
 
         copyIfFresh(appleBox, fruitBox);
 
+        appleBox.put(null);
+        copyIfFresh(appleBox, fruitBox);
+
         copyIfFresh(appleBox, objectBox);
 
         copyIfFresh(fruitBox, objectBox);
